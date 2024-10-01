@@ -18,8 +18,8 @@
       <button id="viewer-login">Viewer Login</button>
     </section>
 
-    <!-- Section for the host to upload a blog post -->
-    <section id="post-upload">
+    <!-- Section for the host to upload a blog post (hidden by default)-->
+    <section id="post-upload" style="display: none">
       <h2>Create a Blog Post</h2>
       <form id="blog-form">
         <label for="title">Title:</label>
@@ -30,9 +30,10 @@
 
         <button type="submit">Submit Post</button>
       </form>
+      <button id="logout">Logout</button>
     </section>
 
-    <!-- Section for viewers to read blog posts -->
+    <!-- Section for viewers to read blog posts (always visible) -->
     <section id="blog-posts">
       <h2>Blog Posts</h2>
       <div id="posts-container"></div>
