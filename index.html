@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <header>
+      <h1>My Blog</h1>
+    </header>
+
+    <!-- Section for the host to upload a blog post -->
+    <section id="post-upload">
+      <h2>Create a Blog Post</h2>
+      <form id="blog-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required />
+
+        <label for="content">Content:</label>
+        <textarea id="content" rows="10" required></textarea>
+
+        <button type="submit">Submit Post</button>
+      </form>
+    </section>
     <script src="index.js"></script>
   </body>
 </html>
