@@ -2,9 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Reference to the form and posts container
   const form = document.getElementById("blog-form");
   const postsContainer = document.getElementById("posts-container");
+  const postUploadSection = document.getElementById("post-upload");
+  const loginSection = document.getElementById("login-section");
+  const hostLoginButton = document.getElementById("host-login");
+  const viewerLoginButton = document.getElementById("viewer-login");
+  const logoutButton = document.getElementById("logout");
 
-  // Array to store posts (in a real app, this would be stored in a database)
-  let posts = [];
+  // Use localStorage to store posts persistently (in a real app, this would be stored in a database)
+  let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
   // Event listener for form submission
   form.addEventListener("submit", function (event) {
@@ -24,12 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add new posts to the array
     posts.push(newPost);
 
+    // Save to localStorage
+    localStorage.setItem("posts", JSON.stringify(posts));
+
     // Clear form inputs
     form.reset();
 
     // Render all posts
     displayPosts();
   });
+
+  // Display posts on page reload
+  displayPosts();
 
   // Function to diplay all posts
   function displayPosts() {
@@ -51,4 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
       postsContainer.appendChild(postElement);
     });
   }
+
+  // Host Login
+  hostLoginButton.addEventListener("click", function () {
+    // For simplicity, assume host login success without a password check
+    loginSection.style.display = "none";
+    postUploadSection.style.display = "block";
+  });
+
+  // Viewer login
+  viewerLoginButton.addEventListener("click", function () {
+    loginSection.style.display = "block";
+    postUploadSection.style.display = "none";
+  });
 });
